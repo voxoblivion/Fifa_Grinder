@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0f97f551-bb10-43d7-864c-d0b4ae6b9170" name="Default Changelist" comment="" />
+    <list default="true" id="0f97f551-bb10-43d7-864c-d0b4ae6b9170" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -12,26 +16,34 @@
     <session id="-268826266">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="13" />
+          <entry key="project.closed" value="23" />
           <entry key="project.open.time.145" value="1" />
           <entry key="project.open.time.21" value="1" />
+          <entry key="project.open.time.25" value="1" />
           <entry key="project.open.time.26" value="2" />
           <entry key="project.open.time.27" value="4" />
-          <entry key="project.open.time.28" value="1" />
+          <entry key="project.open.time.28" value="2" />
           <entry key="project.open.time.29" value="1" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.30" value="3" />
+          <entry key="project.open.time.31" value="1" />
           <entry key="project.open.time.33" value="2" />
-          <entry key="project.open.time.35" value="2" />
+          <entry key="project.open.time.35" value="4" />
           <entry key="project.open.time.36" value="1" />
           <entry key="project.open.time.39" value="1" />
           <entry key="project.open.time.4" value="1" />
+          <entry key="project.open.time.40" value="1" />
           <entry key="project.open.time.41" value="1" />
           <entry key="project.open.time.45" value="1" />
           <entry key="project.open.time.49" value="1" />
+          <entry key="project.open.time.5" value="3" />
+          <entry key="project.open.time.6" value="1" />
+          <entry key="project.open.time.64" value="1" />
+          <entry key="project.open.time.69" value="1" />
           <entry key="project.open.time.76" value="1" />
           <entry key="project.open.time.80" value="1" />
-          <entry key="project.opened" value="26" />
+          <entry key="project.open.time.91" value="1" />
+          <entry key="project.opened" value="39" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -39,24 +51,24 @@
           <entry key="bmp" value="1" />
           <entry key="jpg" value="1" />
           <entry key="png" value="1" />
-          <entry key="py" value="9" />
+          <entry key="py" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Image" value="3" />
-          <entry key="Python" value="9" />
+          <entry key="Python" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Python Console" value="1" />
-          <entry key="py" value="7383" />
+          <entry key="py" value="8030" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="7384" />
+          <entry key="Python" value="8031" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -72,25 +84,49 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/main.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="353">
-                  <caret line="117" column="64" lean-forward="true" selection-start-line="117" selection-start-column="64" selection-end-line="117" selection-end-column="64" />
+                <state relative-caret-position="346">
+                  <caret line="131" column="20" lean-forward="true" selection-start-line="131" selection-start-column="20" selection-end-line="131" selection-end-column="20" />
                   <folding>
                     <element signature="e#0#25#0" expanded="true" />
-                    <marker date="1540815346225" expanded="true" signature="157:2134" ph="..." />
-                    <marker date="1540815346225" expanded="true" signature="2602:2604" ph="..." />
+                    <marker date="1541691708688" expanded="true" signature="157:2343" ph="..." />
+                    <marker date="1541691708688" expanded="true" signature="2825:2827" ph="..." />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/direct_keys.py">
+            <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/PIL/ImageGrab.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="918">
-                  <caret line="55" column="47" selection-start-line="55" selection-start-column="21" selection-end-line="55" selection-end-column="85" />
-                  <folding>
-                    <element signature="e#1#14#0" expanded="true" />
-                  </folding>
+                <state relative-caret-position="663">
+                  <caret line="41" selection-start-line="41" selection-end-line="41" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/subprocess.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="17935">
+                  <caret line="1055" selection-start-line="1055" selection-end-line="1055" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_execfile.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="289">
+                  <caret line="17" selection-start-line="17" selection-end-line="17" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="28271">
+                  <caret line="1663" selection-start-line="1663" selection-end-line="1663" />
                 </state>
               </provider>
             </entry>
@@ -98,8 +134,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/test.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="221">
-                  <caret line="17" selection-start-line="17" selection-end-line="17" />
+                <state relative-caret-position="306">
+                  <caret line="23" selection-start-line="23" selection-end-line="23" />
                 </state>
               </provider>
             </entry>
@@ -132,24 +168,24 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/test.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="238">
-                  <caret line="18" column="1" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
+                <state relative-caret-position="137">
+                  <caret line="22" selection-start-line="22" selection-end-line="22" />
                 </state>
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/main.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="223">
-                  <caret line="114" column="48" selection-start-line="114" selection-start-column="48" selection-end-line="114" selection-end-column="48" />
+                <state relative-caret-position="2023">
+                  <caret line="119" column="48" selection-start-line="119" selection-start-column="48" selection-end-line="119" selection-end-column="48" />
                   <folding>
                     <element signature="e#0#25#0" expanded="true" />
-                    <marker date="1540815346225" expanded="true" signature="157:2134" ph="..." />
-                    <marker date="1540815346225" expanded="true" signature="2602:2604" ph="..." />
+                    <marker date="1541691708688" expanded="true" signature="157:2343" ph="..." />
+                    <marker date="1541691708688" expanded="true" signature="2825:2827" ph="..." />
                   </folding>
                 </state>
               </provider>
@@ -173,6 +209,9 @@
       <find>print</find>
     </findStrings>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -184,17 +223,17 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-376" />
-    <option name="y" value="-12" />
-    <option name="width" value="1462" />
-    <option name="height" value="791" />
+    <option name="x" value="1592" />
+    <option name="y" value="-8" />
+    <option name="width" value="1784" />
+    <option name="height" value="968" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -206,6 +245,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -355,22 +395,23 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
+    <frame x="1592" y="-8" width="1784" height="968" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4989154" visible="true" weight="0.1495564" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4989154" visible="true" weight="0.13344789" />
       <window_info id="Structure" order="1" sideWeight="0.5010846" side_tool="true" weight="0.16609393" />
       <window_info id="Favorites" order="2" sideWeight="0.5010846" side_tool="true" weight="0.16609393" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49936628" weight="0.32884097" />
-      <window_info anchor="bottom" auto_hide="true" x="2503" y="31" width="850" height="920" id="Run" order="2" sideWeight="0.48682705" type="WINDOWED" weight="0.25659472" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4925544" weight="0.4472422" />
+      <window_info active="true" anchor="bottom" id="Find" order="1" sideWeight="0.49885452" visible="true" weight="0.32853717" />
+      <window_info active="true" anchor="bottom" auto_hide="true" x="2503" y="31" width="850" height="920" id="Run" order="2" sideWeight="0.48682705" type="WINDOWED" visible="true" weight="0.25659472" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.491128" weight="0.50269544" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49936628" weight="0.32884097" />
-      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.49936628" visible="true" weight="0.32884097" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5006337" side_tool="true" visible="true" weight="0.32884097" />
-      <window_info anchor="bottom" id="Python Console" order="10" sideWeight="0.49942726" weight="0.3297362" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49713632" weight="0.32853717" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.508872" side_tool="true" visible="true" weight="0.44604316" />
+      <window_info anchor="bottom" id="Python Console" order="10" sideWeight="0.49885452" weight="0.3297362" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -385,9 +426,34 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="918">
           <caret line="55" column="47" selection-start-line="55" selection-start-column="21" selection-end-line="55" selection-end-column="85" />
-          <folding>
-            <element signature="e#1#14#0" expanded="true" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/PIL/ImageGrab.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="41" selection-start-line="41" selection-end-line="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/subprocess.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17935">
+          <caret line="1055" selection-start-line="1055" selection-end-line="1055" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_execfile.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="28271">
+          <caret line="1663" selection-start-line="1663" selection-end-line="1663" />
         </state>
       </provider>
     </entry>
@@ -409,19 +475,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        <state relative-caret-position="306">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="117" column="64" lean-forward="true" selection-start-line="117" selection-start-column="64" selection-end-line="117" selection-end-column="64" />
+        <state relative-caret-position="346">
+          <caret line="131" column="20" lean-forward="true" selection-start-line="131" selection-start-column="20" selection-end-line="131" selection-end-column="20" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
-            <marker date="1540815346225" expanded="true" signature="157:2134" ph="..." />
-            <marker date="1540815346225" expanded="true" signature="2602:2604" ph="..." />
+            <marker date="1541691708688" expanded="true" signature="157:2343" ph="..." />
+            <marker date="1541691708688" expanded="true" signature="2825:2827" ph="..." />
           </folding>
         </state>
       </provider>
