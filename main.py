@@ -12,24 +12,37 @@ class single_player_seasons():
         self.ingame = True
         self.teams = 0
         self.team = team_loyalty
+        self.team_list = [team1, team2]
+        self.resolution = 0
+        self.res_modifier = 0
+
+    def setmousepos(self, x, y):
+        ctypes.windll.user32.SetCursorPos(int(x * self.res_modifier), int(y * self.res_modifier))
 
     def movetosecondhalf(self):
-        ctypes.windll.user32.SetCursorPos(962, 323)
+        self.setmousepos(962, 323)
         press_key(0x1C, 2, 3)
 
     def movetosquadscreen(self):
         self.games += 1
-        ctypes.windll.user32.SetCursorPos(287, 327)
+        self.setmousepos(287, 327)
         press_key(0x1C, 6, 10)
         time.sleep(5)
         if is_on_screen(bbox=newseason_box, condition='ENTRY REQUIREMENTS') is True:
-            ctypes.windll.user32.SetCursorPos(287, 327)
+            self.setmousepos(287, 327)
             press_key(0x1C, 2, 5)
-            ctypes.windll.user32.SetCursorPos(482, 463)
+            self.setmousepos(482, 463)
             time.sleep(2)
             press_key(0x1C, 2, 5)
             time.sleep(2)
         print("SQUAD SCREEN")
+
+    def get_settings(self):
+        config = open("Config.txt")
+        self.resolution = [int(x) for x in config.readline().split("=")[1].split("x")]
+        print(self.resolution)
+        config.close()
+
 
     def fixplayerinjuries(self):
         img = ImageGrab.grab(bbox=injuredplayers_box)
@@ -40,7 +53,7 @@ class single_player_seasons():
             press_key(0x1C, 1, 5)
             time.sleep(2)
             for i in injured_players_list:
-                ctypes.windll.user32.SetCursorPos(self.team[i][0] + 30, self.team[i][1] + 30)
+                self.setmousepos(self.team[i][0] + 30, self.team[i][1] + 30)
                 time.sleep(2)
                 press_key(0x1F, 1, 5)
                 press_key(0x1C, 2, 5)
@@ -50,16 +63,16 @@ class single_player_seasons():
         print("PLAYER INJURERS SORTED")
 
     def checkfitness(self):
-        if (self.games % 2) == 0:
+        if (self.games % 2) == 0 and len(self.team_list) > 1:
             press_key(0xD0, 1, 3, hold_time=0.1)
             press_key(0x1C, 1, 4)
             press_key(0x20, 1, 2)
             press_key(0x1C, 1, 2)
             time.sleep(5)
-            ctypes.windll.user32.SetCursorPos(755, 510)
+            self.setmousepos(755, 510)
             time.sleep(3)
             press_key(0x1C, 1, 10)
-            self.team = teams[teams.index(self.team) - 1]
+            self.team = self.team_list[self.team_list.index(self.team) - 1]
             print(self.team)
             print("TEAM SWITCHED")
 
@@ -80,10 +93,11 @@ def press_key(hex_no, amount, refresh_time, hold_time=0.5):
 
 
 def is_on_screen(bbox, condition):
+    new_bbox = [int(x * game.res_modifier) for x in bbox]
     screen = ImageGrab.grab()
-    screen_text = (image_to_string(screen.crop(bbox), lang='eng'))
+    screen_text = (image_to_string(screen.crop(new_bbox), lang='eng'))
     if screen_text != "":
-        print(screen_text)
+        print(screen_text, str(bbox))
         if screen_text == condition:
             return True
     else:
@@ -100,12 +114,12 @@ team1 = {"Otto": (779, 61), "Mello": (629, 137), "Fraser": (968, 136),
             "Empereur": (661, 390), "Pask": (953, 388), "Brunst": (800, 489)}
 team2 = {"Takagi": (779, 61), "Puri": (629, 137), "Edwards": (968, 136),
             "Ariza": (443, 180), "Hawkridge": (1152, 186),
-            "Thorsem": (805, 244), "Bermingham": (447, 376), "Turton": (1174, 375),
+            "Thorsen": (805, 244), "Bermingham": (447, 376), "Turton": (1174, 375),
             "Han Pengfei": (661, 390), "Sowunmi": (953, 388), "Broda": (800, 489)}
-team_loyalty = {"Jonas": (779, 61), "Pizzi": (629, 137), "Bruno Fernandes": (968, 136),
-            "Payet": (443, 180), "Quaresma": (1152, 186),
-            "William Carvalho": (805, 244), "Ribery": (447, 376), "Dost": (1174, 375),
-            "Ruffier": (661, 390), "Rami": (953, 388), "Lopes": (800, 489)}
+team_loyalty = {"Lacazette": (779, 61), "Van De Beek": (629, 137), "Cesc Fabregas": (968, 136),
+            "Paulinho": (443, 180), "Pedro": (1152, 186),
+            "Gundogan": (805, 244), "Ordagic": (447, 376), "Pacheco": (1174, 375),
+            "Laporte": (661, 390), "Sokratis": (953, 388), "Schmeichel": (800, 489)}
 teams = [team1, team2]
 
 # TODO restart process when disconnect occurs
@@ -117,13 +131,15 @@ as intended. Could be fixed with a soft reset.
 
 if __name__ == '__main__':
     game = single_player_seasons()
-    game.team = team2
+    game.team = team1
+    game.get_settings()
+    game.res_modifier = game.resolution[0]/1600
     while True:
         game.ingame = True
-        if is_on_screen(halftime_box, '1.5:lll]') is True:
+        if is_on_screen(halftime_box, '43:Ul') is True:
             game.movetosecondhalf()
             game.ingame = False
-        if is_on_screen(fulltime_box, 'PLAYER RATINGS') is True:
+        if is_on_screen(fulltime_box, 'I’LHIEK lU-ll II‘UJ') is True:
             game.movetosquadscreen()
             game.fixplayerinjuries()
             game.checkfitness()
@@ -132,5 +148,5 @@ if __name__ == '__main__':
         if game.ingame is True:
             press_key(0x26, 1, 1)
 '''
-lllllllllllllllllLLL
+lllllllllllllllllLLLlllllllllll
 '''
