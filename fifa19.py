@@ -3,6 +3,7 @@ import time
 import ctypes
 from pytesseract import image_to_string
 from PIL import ImageGrab, Image
+import re
 
 
 class single_player_seasons():
@@ -26,9 +27,10 @@ class single_player_seasons():
     def movetosquadscreen(self):
         self.games += 1
         self.setmousepos(287, 327)
-        press_key(0x1C, 6, 10)
+        press_key(0x1C, 4, 7)
+        press_key(0x1C, 2, 13)
         time.sleep(5)
-        if is_on_screen(bbox=newseason_box, condition='ENTRY REQUIREMENTS') is True:
+        if self.is_on_screen(bbox=newseason_box, condition='ENTRY REQUIREMENTS') is True:
             self.setmousepos(287, 327)
             press_key(0x1C, 2, 5)
             self.setmousepos(482, 463)
@@ -43,21 +45,31 @@ class single_player_seasons():
         print(self.resolution)
         config.close()
 
-
     def fixplayerinjuries(self):
-        img = ImageGrab.grab(bbox=injuredplayers_box)
+        new_injuredplayers_box = [int(x * game.res_modifier) for x in injuredplayers_box]
+        img = ImageGrab.grab(bbox=new_injuredplayers_box)
+        img.save("Injured_Players", format="png")
         injured_players = (image_to_string(img, lang='eng'))
         injured_players_list = injured_players.split(', ')
-        if injured_players_list[0] in self.team.keys():
+        print(self.team.keys())
+        print(injured_players_list)
+        if injured_players_list[0] != '':
+            print(injured_players_list)
+            injured_players_list = [re.sub("[^a-zA-Z]+", "", x) for x in injured_players_list]
             print(injured_players_list)
             press_key(0x1C, 1, 5)
             time.sleep(2)
             for i in injured_players_list:
-                self.setmousepos(self.team[i][0] + 30, self.team[i][1] + 30)
-                time.sleep(2)
-                press_key(0x1F, 1, 5)
-                press_key(0x1C, 2, 5)
-                press_key(0x01, 1, 5)
+                if i is not None:
+                    try:
+                        self.setmousepos(self.team[i][0] + 30, self.team[i][1] + 30)
+                    except KeyError:
+                        print("The following player has caused an issue: ", i)
+                        break
+                    time.sleep(2)
+                    press_key(0x1F, 1, 5)
+                    press_key(0x1C, 2, 5)
+                    press_key(0x01, 1, 5)
             press_key(0x01, 1, 5)
             press_key(0x1C, 1, 5)
         print("PLAYER INJURERS SORTED")
@@ -83,6 +95,17 @@ class single_player_seasons():
         press_key(0x01, 1, 4)
         print("GAME STARTED")
 
+    def is_on_screen(self, bbox, condition):
+        new_bbox = [int(x * self.res_modifier) for x in bbox]
+        screen = ImageGrab.grab()
+        screen_text = (image_to_string(screen.crop(new_bbox), lang='eng'))
+        if screen_text != "":
+            print(screen_text, str(bbox))
+            if condition in screen_text:
+                return True
+        else:
+            return False
+
 
 def press_key(hex_no, amount, refresh_time, hold_time=0.5):
     for i in range(amount):
@@ -92,30 +115,22 @@ def press_key(hex_no, amount, refresh_time, hold_time=0.5):
         time.sleep(refresh_time)
 
 
-def is_on_screen(bbox, condition):
-    new_bbox = [int(x * game.res_modifier) for x in bbox]
-    screen = ImageGrab.grab()
-    screen_text = (image_to_string(screen.crop(new_bbox), lang='eng'))
-    if screen_text != "":
-        print(screen_text, str(bbox))
-        if screen_text == condition:
-            return True
-    else:
-        return False
+
 
 
 halftime_box = (938, 136, 1007, 169)
 fulltime_box = (710, 88, 891, 122)
 newseason_box = (1157, 259, 1360, 290)
 injuredplayers_box = (480, 416, 1028, 449)
+
 team1 = {"Otto": (779, 61), "Mello": (629, 137), "Fraser": (968, 136),
             "Marseiler": (443, 180), "Hansen": (1152, 186),
             "Fujita": (805, 244), "Scott": (447, 376), "Frantsen": (1174, 375),
             "Empereur": (661, 390), "Pask": (953, 388), "Brunst": (800, 489)}
 team2 = {"Takagi": (779, 61), "Puri": (629, 137), "Edwards": (968, 136),
             "Ariza": (443, 180), "Hawkridge": (1152, 186),
-            "Thorsen": (805, 244), "Bermingham": (447, 376), "Turton": (1174, 375),
-            "Han Pengfei": (661, 390), "Sowunmi": (953, 388), "Broda": (800, 489)}
+            "Thorsen": (805, 244), "Berminghamr": (447, 376), "Turton": (1174, 375),
+            "HanPengfei": (661, 390), "Sowunmi": (953, 388), "Broda": (800, 489)}
 team_loyalty = {"Lacazette": (779, 61), "Van De Beek": (629, 137), "Cesc Fabregas": (968, 136),
             "Paulinho": (443, 180), "Pedro": (1152, 186),
             "Gundogan": (805, 244), "Ordagic": (447, 376), "Pacheco": (1174, 375),
@@ -127,19 +142,22 @@ teams = [team1, team2]
 '''
 Issue occurs when game has been running for a while and key presses no longer function 
 as intended. Could be fixed with a soft reset.
+l
+In some cases loading takes a while resulting in timing messing up
+Leaving time period too high results in menu going into afk mode
 '''
 
 if __name__ == '__main__':
     game = single_player_seasons()
-    game.team = team1
+    game.team = team2
     game.get_settings()
     game.res_modifier = game.resolution[0]/1600
     while True:
         game.ingame = True
-        if is_on_screen(halftime_box, '43:Ul') is True:
+        if game.is_on_screen(halftime_box, '1.5') is True:
             game.movetosecondhalf()
             game.ingame = False
-        if is_on_screen(fulltime_box, 'I’LHIEK lU-ll II‘UJ') is True:
+        if game.is_on_screen(fulltime_box, 'PLAYER RATINGS') is True:
             game.movetosquadscreen()
             game.fixplayerinjuries()
             game.checkfitness()
@@ -147,6 +165,22 @@ if __name__ == '__main__':
             game.ingame = False
         if game.ingame is True:
             press_key(0x26, 1, 1)
+
+
 '''
-lllllllllllllllllLLLlllllllllll
+lllllllllllllllllLLLllllllllllllllllllllllll l
+l
+
+
+  
+'''
+'''
+time.sleep(3)
+game = single_player_seasons()
+game.team = team2
+game.get_settings()
+game.res_modifier = game.resolution[0] / 1600
+game.fixplayerinjuries()
+game.games = 2
+game.checkfitness()
 '''
